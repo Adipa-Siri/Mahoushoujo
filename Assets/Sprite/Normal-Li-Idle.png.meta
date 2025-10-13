@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 8c7a5145fef952f45b75859278483912
+guid: 591b0d90f3769de45939301c37497007
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -493951044135814818
-    second: Idle-Lillian_0
+      213: -5430410262905036721
+    second: Normal-Li-Idle_0
   - first:
-      213: -5364740770097534817
-    second: Idle-Lillian_1
+      213: 7418442362509847138
+    second: Normal-Li-Idle_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle-Lillian_0
+      name: Normal-Li-Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e59f9d574222529f0800000000000000
-      internalID: -493951044135814818
+      spriteID: f40e8ee23ae43a4b0800000000000000
+      internalID: -5430410262905036721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle-Lillian_1
+      name: Normal-Li-Idle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f98e74671bc9c85b0800000000000000
-      internalID: -5364740770097534817
+      spriteID: 26aeb1c260a93f660800000000000000
+      internalID: 7418442362509847138
       vertices: []
       indices: 
       edges: []
@@ -163,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 948078dac09b47b4f8e914435b18eaa0
+    spriteID: 37c861350d5a9a347892c08bd20064ba
     internalID: 0
     vertices: []
     indices: 
@@ -175,8 +175,8 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Idle-Lillian_0: -493951044135814818
-      Idle-Lillian_1: -5364740770097534817
+      Normal-Li-Idle_0: -5430410262905036721
+      Normal-Li-Idle_1: 7418442362509847138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
