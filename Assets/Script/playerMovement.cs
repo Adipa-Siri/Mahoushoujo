@@ -1,36 +1,55 @@
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class playerMovement : MonoBehaviour
 
 {
+    //movement
     public Rigidbody2D rb;
     public float speed = 5f;
-     float horizontalMovement;
+    public float horizontal;
     public float jumpForce = 10f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    //ground check
+    [SerializeField] private Transform groundCheck;
+    public bool isGrounded;
+    //collider
+    public Collider2D collision;
+
     void Start()
     {
-        GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        isGrounded = true;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = new Vector2(horizontalMovement * speed,rb.linearVelocity.y);
-    }
-    public void Move(InputAction.CallbackContext context)
-    {
-        horizontalMovement= context.ReadValue<Vector2>().x;
-        
-    }
-    public void Jump(InputAction.CallbackContext context)
-    { 
-        if (context.performed)
+        horizontal = Input.GetAxisRaw("Horizontal");
+        if(Input.GetButtonDown("Jump")&& (isGrounded==true))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
 
+    }
+    public void FixedUpdate()
+    {
+        float xInput = Input.GetAxis("Horizontal");
+        rb.linearVelocity = new Vector2(xInput * speed, rb.linearVelocity.y);
 
+
+    }
+
+  
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
