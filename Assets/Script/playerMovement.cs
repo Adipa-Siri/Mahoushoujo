@@ -17,6 +17,7 @@ public class playerMovement : MonoBehaviour
     public Collider2D collision;
     //Animation
     [SerializeField] private Animator animator;
+    bool flip = true;
     
 
     void Start()
@@ -37,9 +38,17 @@ public class playerMovement : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        float xInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(xInput * speed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+
+        if (horizontal < 0 && !flip) {
+        Flip();
         
+        }
+        if (horizontal > 0 && flip)
+        {
+            Flip();
+
+        }
 
     }
 
@@ -55,6 +64,13 @@ public class playerMovement : MonoBehaviour
         }
     }
     
+    void Flip()
+    {
+        Vector3 current = gameObject.transform.localScale;
+        current.x *= -1;
+        gameObject.transform.localScale = current;
+        flip = !flip;
+    }
   
   
     private void OnCollisionEnter2D(Collision2D other)

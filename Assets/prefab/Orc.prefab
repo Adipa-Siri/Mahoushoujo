@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5531541779599322218}
   - component: {fileID: 5211517712540635847}
-  - component: {fileID: 1226982429755765704}
   - component: {fileID: 2176007183364696209}
+  - component: {fileID: 521924909927416132}
   m_Layer: 6
   m_Name: Orc
   m_TagString: Untagged
@@ -89,28 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1226982429755765704
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904800558088563683}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2d71a8c1324e17946938e1c56bf8f7fc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &2176007183364696209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +135,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.873016, y: 1.7728939}
   m_EdgeRadius: 0
+--- !u!114 &521924909927416132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904800558088563683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4eb1acadb815342a8107aeffac7c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

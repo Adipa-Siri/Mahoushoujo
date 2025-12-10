@@ -4,6 +4,7 @@ public class knifePick : MonoBehaviour
 {
     public GameObject knife;
     public Collider2D pickup;
+    public knifeManage knives;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,7 @@ public class knifePick : MonoBehaviour
     {
         if (other.CompareTag("knife"))
         {
+            knives.knife += 1;
             Destroy(other.gameObject);
         }
     }
