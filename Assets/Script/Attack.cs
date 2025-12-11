@@ -8,8 +8,8 @@ public class Attack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask EnemyLayers;
     public knifeManage knives;
-    float Mdamage = 3.0f;
-    float Rdamage = 2.5f;
+    int Mdamage = 3;
+    int Rdamage = 2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     // Update is called once per frame
@@ -50,15 +50,10 @@ public class Attack : MonoBehaviour
                 foreach (Collider2D Enemy in HitEnemy)
                 {
 
-                    Debug.Log("You hit!");
+                    Enemy.GetComponent<enemyHealth>().DamageTaken(Mdamage);
 
-                }
+            }
             
-
-        }
-        else
-        {
-
 
         }
         

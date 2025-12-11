@@ -3,18 +3,12 @@ using UnityEngine;
 public class enemyHealth : MonoBehaviour
 {
     public Animator animator;
-    [SerializeField] private float MaxHp = 10.0f;
-    float currentHP;
+    [SerializeField] private float MaxHp = 15.0f;
+    [SerializeField] float currentHP;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHP = MaxHp;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void DamageTaken(int dam)
@@ -32,7 +26,7 @@ public class enemyHealth : MonoBehaviour
     {
         animator.SetBool("isDead", true);
 
-        this.enabled = false;
-        GetComponent<Collider>().enabled = false;
+        Destroy(gameObject, 0.5f);
+        
     }
 }
