@@ -17,7 +17,7 @@ public class playerMovement : MonoBehaviour
     public Collider2D collision;
     //Animation
     [SerializeField] private Animator animator;
-    bool flip = true;
+    public bool flip = true;
     
 
     void Start()
@@ -64,7 +64,7 @@ public class playerMovement : MonoBehaviour
         }
     }
     
-    void Flip()
+    public void Flip()
     {
         Vector3 current = gameObject.transform.localScale;
         current.x *= -1;

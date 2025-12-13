@@ -11,6 +11,7 @@ public class enemyMove : MonoBehaviour
     public LayerMask PlayerLayers;
     [SerializeField] Animator animator;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -52,9 +53,6 @@ public class enemyMove : MonoBehaviour
 
         foreach (Collider2D player in Detect)
         {
-            
-            Debug.Log("Player Detected");
-            Debug.Log(target.position);
             Vector2 direction = (target.position - transform.position).normalized;
             rb.linearVelocity = new Vector2(direction.x * speed, rb.linearVelocity.y);
             animator.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
@@ -62,15 +60,7 @@ public class enemyMove : MonoBehaviour
 
 
     }
-    //private void OnDrawGizmosSelected()
-    //{
-        //if (target == null)
-        //{
-          //  return;
-       // }
-
-       // Gizmos.DrawWireSphere(target.position, targetRange);
-//}
+    
     void Flip()
     {
         Vector3 current = gameObject.transform.localScale;

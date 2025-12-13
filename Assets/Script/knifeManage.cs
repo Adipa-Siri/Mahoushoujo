@@ -10,4 +10,6 @@ public class knifeManage : MonoBehaviour
     {
         knifecount.text = ": " + knife.ToString();
     }
+
+   
 }

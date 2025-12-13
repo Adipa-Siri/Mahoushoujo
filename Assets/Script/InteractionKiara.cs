@@ -1,15 +1,17 @@
+using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InteractionKiara : MonoBehaviour
+public class InteractionKiara : MonoBehaviour,Interactable
 {
     public InteractionNPC KiaraInt;
     public GameObject dialoguePanel;
     public TMP_Text talkText, nameText;
     public Image profileImage;
-
+    public bool destroy = true;
     private int dialogueIndex;
     private bool istyping, isActiveDialogue;
 
@@ -33,56 +35,69 @@ public class InteractionKiara : MonoBehaviour
         }
 
     }
+
     void StartDialouge()
     {
         isActiveDialogue = true;
         dialogueIndex = 0;
+        destroy = false;
+        
+        
             nameText.SetText(KiaraInt.npcName);
             profileImage.sprite = KiaraInt.profile;
+
             dialoguePanel.SetActive(true);
             StartCoroutine(TypeLine());
-        
 
-    }
+        }
+        
+    
+
     void NextLine()
     {
+
         if (istyping)
         {
-            StopAllCoroutines();
-            talkText.SetText(KiaraInt.dialogueLines[dialogueIndex]);
-            istyping = false;
+                StopAllCoroutines();
+                talkText.SetText(KiaraInt.dialogueLines[dialogueIndex]);
+                istyping = false;
+        }
+        else if (++dialogueIndex < KiaraInt.dialogueLines.Length)
+        {
+            StartCoroutine(TypeLine());
         }
         else
         {
-            dialogueIndex++;
-            if (dialogueIndex < KiaraInt.dialogueLines.Length)
-            {
-                StartCoroutine(TypeLine());
-            }
-            else
-            {
-                isActiveDialogue = false;
-                dialoguePanel.SetActive(false);
-            }
+            EndDialouge();
         }
+
     }
-    System.Collections.IEnumerator TypeLine()
+    IEnumerator TypeLine()
     {
         istyping = true;
-        talkText.SetText("");
-        foreach (char c in KiaraInt.dialogueLines[dialogueIndex].ToCharArray())
-        {
-            talkText.text += c;
-            yield return new WaitForSeconds(0.02f);
+            talkText.SetText("");
+            foreach (char letter in KiaraInt.dialogueLines[dialogueIndex])
+            {
+                talkText.text += letter;
+                yield return new WaitForSeconds(KiaraInt.dialogSpeed);
+            }
+            istyping = false;
+            if (KiaraInt.autoProgress.Length > dialogueIndex && KiaraInt.autoProgress[dialogueIndex])
+            {
+                yield return new WaitForSeconds(KiaraInt.autoProgressDelay);
+                NextLine();
+
+            }
         }
-        istyping = false;
-    }
+        
     public void EndDialouge()
     {
         StopAllCoroutines();
-        isActiveDialogue = false;
-        talkText.SetText("");
-        dialoguePanel.SetActive(false);
+            isActiveDialogue = false;
+            talkText.SetText("");
+            dialoguePanel.SetActive(false);
+            return;
+        
         
     }
 }

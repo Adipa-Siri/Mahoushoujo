@@ -10,8 +10,8 @@ public class enemyAttack : MonoBehaviour
     public LayerMask PlayerLayers;
     int damage = 1;
     float atkCooldown = 2f;
-    bool isAtk = false;
     
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

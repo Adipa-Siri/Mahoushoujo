@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class Attack : MonoBehaviour
 {
@@ -9,13 +11,21 @@ public class Attack : MonoBehaviour
     public LayerMask EnemyLayers;
     public knifeManage knives;
     int Mdamage = 3;
-    int Rdamage = 2;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    // Update is called once per frame
+    //range attack
+    public GameObject bulletPrefab;
+    Vector2 aim;
     void Update()
     {
-       
+        float horizontal = Input.GetAxisRaw("Horizontal");
+
+        if (horizontal < 0)
+        {
+            aim = Vector2.left;
+        }
+        else if (horizontal > 0)
+        {
+            aim = Vector2.right;
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -23,6 +33,7 @@ public class Attack : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
+           
             attackLong();
             knives.knife -= 1;
             //knives will not go below 0
@@ -74,11 +85,14 @@ public class Attack : MonoBehaviour
     {
         if (knives.knife > 0)
         {
+            
             animator.SetTrigger("isAttacking");
 
-        }
-        else
-        {
+           
+           GameObject Bull =  Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity);
+              bullet bullScript = Bull.GetComponent<bullet>();
+                bullScript.SetMoveDirection(aim);
+
 
 
         }
