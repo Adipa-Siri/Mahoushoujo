@@ -10,13 +10,15 @@ public class bullet : MonoBehaviour
     Vector2 screenBounds;
     Vector2 moveDirection;
     public float lifeTime = 2.0f;
+    private AudioSource source;
+    public AudioClip shootSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is create
     private void Start()
     {
-
+        source = GetComponent<AudioSource>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-
         rb.linearVelocity = moveDirection * speed;
+        source.PlayOneShot(shootSound, 0.7f);
     }
 
     private void Update()

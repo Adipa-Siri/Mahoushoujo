@@ -18,10 +18,15 @@ public class playerMovement : MonoBehaviour
     //Animation
     [SerializeField] private Animator animator;
     public bool flip = true;
-    
+    //Audio
+    private AudioSource audioSource;
+    public AudioClip walk;
+    public AudioClip jump;
+
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -29,7 +34,16 @@ public class playerMovement : MonoBehaviour
     {
         //walking
         horizontal = Input.GetAxisRaw("Horizontal");
+        if (rb.linearVelocity.x != 0 && isGrounded)
+        {
+            if (!audioSource.isPlaying)
+                audioSource.PlayOneShot(walk, 0.5f);
 
+        }
+        else
+        {
+            audioSource.Stop();
+        }
         animator.SetFloat("speed", Mathf.Abs(horizontal));//walking check
         animator.SetFloat("inputX", horizontal);//fliping
             Jump();
@@ -40,14 +54,16 @@ public class playerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
+        
+
         if (horizontal < 0 && !flip) {
         Flip();
-        
+            
         }
         if (horizontal > 0 && flip)
         {
             Flip();
-
+            
         }
 
     }
@@ -59,6 +75,7 @@ public class playerMovement : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && (isGrounded == true))
         {
+            audioSource.PlayOneShot(jump,0.5f);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             animator.SetBool("isJumping", true);
         }

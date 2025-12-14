@@ -17,6 +17,8 @@ public class NPCScript : MonoBehaviour, Interaction
     public bool isActive;
     private bool isTyping;
     private int requiredIris = 3;
+   
+    
 
 
     public bool CanInteract()
@@ -45,7 +47,8 @@ public class NPCScript : MonoBehaviour, Interaction
         Textname.SetText(Dialouge.npcName);
         pfp.sprite = Dialouge.profile;
         dialogBox.SetActive(true);
-        StartCoroutine(Type());
+        
+            StartCoroutine(Type());
         }
         if (iris.iris >= requiredIris)
         {
@@ -53,6 +56,7 @@ public class NPCScript : MonoBehaviour, Interaction
             pfp.sprite = complete.profile;
             dialogBox.SetActive(true);
             irisPanel.SetActive(false);
+           
             StartCoroutine(Type());
         }
     }

@@ -1,24 +1,29 @@
+using System.Collections;
+using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.UI;
 
 public class Hun : MonoBehaviour
 {
+    
     private Rigidbody2D rb;
-    [SerializeField] private int atk = 10;
-    private float speed = 3.5f;
+    [SerializeField] private int atk = 3;
+    private float speed = 2.5f;
     public float targetRange = 0.2f;
     public Transform target,atkpoint;
     public float atkRange = 0.5f;
     public bool flip = true;
     public LayerMask PlayerLayers;
     [SerializeField] Animator animator;
+    public GameObject iris;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(killspawn());
     }
 
     // Update is called once per frame
@@ -39,8 +44,7 @@ public class Hun : MonoBehaviour
             }
         }
         attack();
-
-        Destroy(gameObject, 5f);
+        
     }
 
     void FixedUpdate()
@@ -55,14 +59,20 @@ public class Hun : MonoBehaviour
 
         foreach (Collider2D player in HitPlayer)
         {
-            
                 animator.SetTrigger("atk");
                 player.GetComponent<health>().DamTaken(atk);
+                
         }
 
 
         }
     
+    private void die()
+    {
+        Destroy(gameObject);
+       
+        Instantiate (iris, transform.position, Quaternion.identity);
+    }
 
     public void Detection()
     {
@@ -88,5 +98,9 @@ public class Hun : MonoBehaviour
         flip = !flip;
     }
 
-    
+    IEnumerator killspawn()
+    {
+        yield return new WaitForSeconds(5f);
+        die();
+    }
 }

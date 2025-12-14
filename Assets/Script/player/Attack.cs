@@ -11,11 +11,14 @@ public class Attack : MonoBehaviour
     public LayerMask EnemyLayers;
     public knifeManage knives;
     int Mdamage = 3;
-   
+    
+
     //range attack
     public GameObject bulletPrefab;
-    public GameObject knife;
     Vector2 aim;
+
+  
+
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -54,9 +57,6 @@ public class Attack : MonoBehaviour
         if(knives.knife > 0) {
             animator.SetTrigger("isAttacking");
 
-            //detect range enemy
-            
-
 
                 Collider2D[] HitEnemy = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, EnemyLayers);
 
@@ -72,16 +72,7 @@ public class Attack : MonoBehaviour
         
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if(attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
-    }
+   
 
     public void attackLong()
     {

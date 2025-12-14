@@ -6,7 +6,7 @@ using UnityEngine;
 public class selfDestruct : MonoBehaviour
 {
     private Vector2 screenBounds;
-    public spawnerK kCount;
+    
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

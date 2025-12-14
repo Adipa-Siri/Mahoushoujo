@@ -9,6 +9,6 @@ public class InteractionNPC : ScriptableObject
     public float dialogSpeed = 0.5f;
     public bool[] autoProgress;
     public float autoProgressDelay = 2f;
-    public AudioClip voice;
+   
 
 }

@@ -18,7 +18,8 @@ MonoBehaviour:
   - '"Oh... you did it."'
   - '"Well you sure aren''t lazy like Kusoda."'
   - '"Th-thanks.. I guess"'
+  - '"Go back to Felnost already!"'
   dialogSpeed: 0.05
-  autoProgress: 010101
+  autoProgress: 01010100
   autoProgressDelay: 1
   voice: {fileID: 0}

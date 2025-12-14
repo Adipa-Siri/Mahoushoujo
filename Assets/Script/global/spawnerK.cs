@@ -8,22 +8,44 @@ public class spawnerK : MonoBehaviour
     public knifeManage knifeCount;
     public GameObject knife;
     public Transform spawnPoint;
+    public Transform player;
+    private float cooldown = 5f;
+
+    private void Start()
+    {
+        StartCoroutine(spawntimer());
+    }
 
     private void Update()
     {
-       spawnKnife();
+            spawnKnife();
+           
     }
     void spawnKnife()
     {
+
+
         if (knifeCount.knife < 1 && Input.GetKeyDown(KeyCode.Mouse1))
         {
-            num = Random.Range(0, 11);
-            Debug.Log(num);
-            if (num == 10 || num == 6)
+            num = Random.Range(0, 15);
+            Debug.Log("setNumOver");
+            if (num == 2 || num == 4 || num==10 )
             {
-                Debug.Log("Spawn Knife");
-                Instantiate(knife,new Vector2(spawnPoint.position.x*Random.Range(1,4), spawnPoint.position.y) , Quaternion.identity);
+                Instantiate(knife,new Vector2(player.position.x, player.position.y) , Quaternion.identity);
+                
             }
+        }
+    }
+
+    IEnumerator spawntimer()
+    {
+        while (true)
+        {
+
+            Instantiate(knife, new Vector2(spawnPoint.position.x * Random.Range(1, 3), spawnPoint.position.y), Quaternion.identity);
+
+
+            yield return new WaitForSeconds(cooldown);
         }
     }
 }

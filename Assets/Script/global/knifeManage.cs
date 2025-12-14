@@ -11,7 +11,7 @@ public class knifeManage : MonoBehaviour
     void Update()
     {
         knifecount.text = ": " + knife.ToString();
-        iriscount.text = ": " + iris.ToString();
+        iriscount.text = ": " + iris.ToString() + "/ 3";
     }
 
    

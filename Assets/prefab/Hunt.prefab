@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ec3095c02fb284aaa6095ef37d55bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 10
+  atk: 3
   targetRange: 2.96
   target: {fileID: 524029585585181747}
   atkpoint: {fileID: 6013160957921118873}
@@ -241,6 +241,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: -6938725528806601916}
+  iris: {fileID: 3540995163184487525, guid: cbc7f38108cde324ba50ceaec7d2ba0a, type: 3}
 --- !u!1 &3601482701878622918
 GameObject:
   m_ObjectHideFlags: 0
