@@ -11,8 +11,10 @@ public class Attack : MonoBehaviour
     public LayerMask EnemyLayers;
     public knifeManage knives;
     int Mdamage = 3;
+   
     //range attack
     public GameObject bulletPrefab;
+    public GameObject knife;
     Vector2 aim;
     void Update()
     {
@@ -33,7 +35,7 @@ public class Attack : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-           
+            
             attackLong();
             knives.knife -= 1;
             //knives will not go below 0
@@ -92,6 +94,7 @@ public class Attack : MonoBehaviour
            GameObject Bull =  Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity);
               bullet bullScript = Bull.GetComponent<bullet>();
                 bullScript.SetMoveDirection(aim);
+
 
 
 

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e9fa602a86ce234bb6994473c34773f, type: 3}
-  m_Name: Kiara Granna
+  m_Name: KiaraQuestComplete
   m_EditorClassIdentifier: 
   npcName: Kiara Granna
   profile: {fileID: -4284096963703563454, guid: 63ea3463640d146498579fccbb3a826c, type: 3}
   dialogueLines:
-  - '"Oh it''s you.."'
-  - '"Kusoda''s little side kick."'
-  - '"Whatever, Can you finish off the orcs?"'
-  - '"Hey! Don''t frown at me!"'
-  dialogSpeed: 0.5
-  autoProgress: 01010100
-  autoProgressDelay: 2
+  - '"Oh... you did it."'
+  - '"Well you sure aren''t lazy like Kusoda."'
+  - '"Th-thanks.. I guess"'
+  dialogSpeed: 0.05
+  autoProgress: 010101
+  autoProgressDelay: 1
+  voice: {fileID: 0}

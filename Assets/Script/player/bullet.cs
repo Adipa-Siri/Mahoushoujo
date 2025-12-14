@@ -9,6 +9,7 @@ public class bullet : MonoBehaviour
     int damage = 2;
     Vector2 screenBounds;
     Vector2 moveDirection;
+    public float lifeTime = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is create
     private void Start()
     {
@@ -25,6 +26,7 @@ public class bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Destroy(gameObject, lifeTime);
     }
     
     public void SetMoveDirection(Vector2 dir)
@@ -34,9 +36,7 @@ public class bullet : MonoBehaviour
 
 
     public void OnCollisionEnter2D(Collision2D collision)
-    {
-      
-         
+    {    
         if (collision.gameObject.CompareTag("enemy"))
         {
             enemyHealth enemyHealth = collision.gameObject.GetComponent<enemyHealth>();
@@ -46,10 +46,7 @@ public class bullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-
-
-
-
+        
     }
 
 }

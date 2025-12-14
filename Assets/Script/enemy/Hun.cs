@@ -1,17 +1,18 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Splines;
+using UnityEngine.UI;
 
-public class enemyMove : MonoBehaviour
+public class Hun : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    public float speed = 3f;
+    private Rigidbody2D rb;
+    [SerializeField] private int atk = 10;
+    private float speed = 3.5f;
     public float targetRange = 0.2f;
-    public Transform target;
+    public Transform target,atkpoint;
+    public float atkRange = 0.5f;
     public bool flip = true;
     public LayerMask PlayerLayers;
     [SerializeField] Animator animator;
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +23,7 @@ public class enemyMove : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         if (target)
         {
 
@@ -37,7 +38,9 @@ public class enemyMove : MonoBehaviour
                 Flip();
             }
         }
+        attack();
 
+        Destroy(gameObject, 5f);
     }
 
     void FixedUpdate()
@@ -45,8 +48,24 @@ public class enemyMove : MonoBehaviour
         Detection();
     }
 
+    public void attack()
+    {
 
-    public void Detection() {
+        Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(atkpoint.position, atkRange, PlayerLayers);
+
+        foreach (Collider2D player in HitPlayer)
+        {
+            
+                animator.SetTrigger("atk");
+                player.GetComponent<health>().DamTaken(atk);
+        }
+
+
+        }
+    
+
+    public void Detection()
+    {
 
         Collider2D[] Detect = Physics2D.OverlapCircleAll(gameObject.transform.position, targetRange, PlayerLayers);
 
@@ -60,7 +79,7 @@ public class enemyMove : MonoBehaviour
 
 
     }
-    
+
     void Flip()
     {
         Vector3 current = gameObject.transform.localScale;
@@ -68,4 +87,6 @@ public class enemyMove : MonoBehaviour
         gameObject.transform.localScale = current;
         flip = !flip;
     }
+
+    
 }

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9fa602a86ce234bb6994473c34773f, type: 3}
+  m_Name: Kiara Granna
+  m_EditorClassIdentifier: 
+  npcName: Kiara Granna
+  profile: {fileID: -4284096963703563454, guid: 63ea3463640d146498579fccbb3a826c, type: 3}
+  dialogueLines:
+  - '"Oh it''s you.."'
+  - '"Kusoda''s little side kick."'
+  - '"Whatever, Can you finish off the orcs?"'
+  - '"Hey! Don''t frown at me!"'
+  - '"Oh... and please find Bloodied Iris fro me."'
+  - '"Where to find it?"'
+  - '"Kill the orc that has been possesed."'
+  - '"then run away from the shadow"'
+  - '"It a one hit K.O for those guys"'
+  - '"I hope this isn''t that hard..."'
+  - '"But what to expect from Kusoda''s right hand"'
+  dialogSpeed: 0.05
+  autoProgress: 0101010101010101010100
+  autoProgressDelay: 1
+  voice: {fileID: 0}

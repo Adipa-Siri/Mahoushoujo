@@ -24,5 +24,10 @@ public class knifePick : MonoBehaviour
             knives.knife += 1;
             Destroy(other.gameObject);
         }
+        if(other.CompareTag("iris"))
+        {
+            knives.iris += 1;
+            Destroy(other.gameObject);
+        }
     }
 }

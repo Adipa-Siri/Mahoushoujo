@@ -3,26 +3,19 @@ using UnityEngine;
 public class intercollide : MonoBehaviour
 {
     public BoxCollider2D boxCollider;
-    public GameObject collision;
+    public GameObject coll;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        collision.SetActive(false);
+        coll.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-        
-    }
-
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("NPC"))
+        if (collision.gameObject.CompareTag("NPC"))
         {
-            Debug.Log("Collide");
-            collision.SetActive(true);
+            coll.SetActive(true);
         }
     }
 }
