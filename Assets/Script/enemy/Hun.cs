@@ -8,7 +8,7 @@ public class Hun : MonoBehaviour
 {
     
     private Rigidbody2D rb;
-    [SerializeField] private int atk = 3;
+    [SerializeField] private int atk = 10;
     private float speed = 2.5f;
     public float targetRange = 0.2f;
     public Transform target,atkpoint;

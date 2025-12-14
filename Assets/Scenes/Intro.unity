@@ -1249,6 +1249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1904800558088563683, guid: 8a4b6f17fa25b4e4b8dbde137752eb71, type: 3}
   spawnPoint: {fileID: 745599374}
+  cooldown: 10
 --- !u!1 &812577907
 GameObject:
   m_ObjectHideFlags: 0

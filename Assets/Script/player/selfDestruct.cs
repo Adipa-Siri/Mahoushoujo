@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Rendering.Analytics;
+
 using UnityEngine;
 
 public class selfDestruct : MonoBehaviour

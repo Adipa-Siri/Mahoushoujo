@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ec3095c02fb284aaa6095ef37d55bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 3
+  atk: 10
   targetRange: 2.96
   target: {fileID: 524029585585181747}
   atkpoint: {fileID: 6013160957921118873}
