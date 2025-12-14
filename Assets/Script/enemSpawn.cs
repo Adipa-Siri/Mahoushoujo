@@ -6,7 +6,8 @@ public class enemSpawn : MonoBehaviour
     private int num;
     public GameObject enemy;
     public Transform spawnPoint;
-   [SerializeField] private float cooldown = 10f;
+    public Transform player;
+    [SerializeField] private float cooldown = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,7 +20,7 @@ public class enemSpawn : MonoBehaviour
         while (true)
         {
             
-                Instantiate(enemy, new Vector2(spawnPoint.position.x * Random.Range(1, 3), spawnPoint.position.y), Quaternion.identity);
+                Instantiate(enemy, new Vector2(spawnPoint.position.x * Random.Range(1, 3), player.position.y), Quaternion.identity);
             
             yield return new WaitForSeconds(cooldown);
         }

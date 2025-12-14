@@ -8,7 +8,7 @@ public class Hun : MonoBehaviour
 {
     
     private Rigidbody2D rb;
-    [SerializeField] private int atk = 10;
+    [SerializeField] private int atk = 2;
     private float speed = 2.5f;
     public float targetRange = 0.2f;
     public Transform target,atkpoint;
@@ -17,6 +17,7 @@ public class Hun : MonoBehaviour
     public LayerMask PlayerLayers;
     [SerializeField] Animator animator;
     public GameObject iris;
+    float atkcooldown = 2.0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +30,8 @@ public class Hun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (target)
         {
 
@@ -43,8 +46,12 @@ public class Hun : MonoBehaviour
                 Flip();
             }
         }
+        if (atkcooldown > 0)
+        {
+            atkcooldown -= Time.deltaTime;
+        }
         attack();
-        
+
     }
 
     void FixedUpdate()
@@ -54,18 +61,19 @@ public class Hun : MonoBehaviour
 
     public void attack()
     {
-
         Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(atkpoint.position, atkRange, PlayerLayers);
-
         foreach (Collider2D player in HitPlayer)
         {
+            if (atkcooldown <= 0)
+            {
+                atkcooldown = 2f;
                 animator.SetTrigger("atk");
                 player.GetComponent<health>().DamTaken(atk);
-                
+            }
         }
+        
 
-
-        }
+    }
     
     private void die()
     {
@@ -103,4 +111,8 @@ public class Hun : MonoBehaviour
         yield return new WaitForSeconds(5f);
         die();
     }
+
+   
 }
+
+

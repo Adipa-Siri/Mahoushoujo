@@ -231,11 +231,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ec3095c02fb284aaa6095ef37d55bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 10
+  atk: 2
   targetRange: 2.96
   target: {fileID: 524029585585181747}
   atkpoint: {fileID: 6013160957921118873}
-  atkRange: 1
+  atkRange: 0.32
   flip: 1
   PlayerLayers:
     serializedVersion: 2
@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 3601482701878622918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 0, z: 0}
+  m_LocalPosition: {x: -0.61, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
