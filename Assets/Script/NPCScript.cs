@@ -48,7 +48,6 @@ public class NPCScript : MonoBehaviour, Interaction
         pfp.sprite = Dialouge.profile;
         dialogBox.SetActive(true);
         
-            StartCoroutine(Type());
         }
         if (iris.iris >= requiredIris)
         {
@@ -56,9 +55,9 @@ public class NPCScript : MonoBehaviour, Interaction
             pfp.sprite = complete.profile;
             dialogBox.SetActive(true);
             irisPanel.SetActive(false);
-           
-            StartCoroutine(Type());
         }
+
+        StartCoroutine(Type());
     }
     public void EndDialouge()
     {
