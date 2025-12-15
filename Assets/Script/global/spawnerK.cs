@@ -28,7 +28,7 @@ public class spawnerK : MonoBehaviour
         if (knifeCount.knife < 1 && Input.GetKeyDown(KeyCode.Mouse1))
         {
             num = Random.Range(0, 15);
-            Debug.Log("setNumOver");
+            
             if (num == 2 || num == 4 || num==10 )
             {
                 Instantiate(knife,new Vector2(player.position.x, player.position.y) , Quaternion.identity);
@@ -45,7 +45,7 @@ public class spawnerK : MonoBehaviour
             Instantiate(knife, new Vector2(spawnPoint.position.x * Random.Range(1, 3), spawnPoint.position.y), Quaternion.identity);
 
 
-            yield return new WaitForSeconds(cooldown);
+            yield return new WaitForSeconds(cooldown);//when cooldown reached spawn the knife near by player
         }
     }
 }

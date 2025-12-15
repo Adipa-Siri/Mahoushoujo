@@ -43,13 +43,14 @@ public class NPCScript : MonoBehaviour, Interaction
     {
         isActive = true;
         DialogIndex = 0;
-        if (iris.iris < requiredIris) { 
+        if (iris.iris < requiredIris) //first time dialouge
+        { 
         Textname.SetText(Dialouge.npcName);
         pfp.sprite = Dialouge.profile;
         dialogBox.SetActive(true);
         
         }
-        if (iris.iris >= requiredIris)
+        if (iris.iris >= requiredIris)//completed dialouge
         {
             Textname.SetText(complete.npcName);
             pfp.sprite = complete.profile;

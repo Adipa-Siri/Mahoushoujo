@@ -19,7 +19,7 @@ public class enemyHealth : MonoBehaviour
     public void DamageTaken(int dam)
     {
        
-        currentHP -= dam;
+        currentHP -= dam;//take damage
         if (currentHP < 1)
         {
             audioSource.PlayOneShot(hurt, 0.5f);
@@ -34,12 +34,12 @@ public class enemyHealth : MonoBehaviour
 
         Destroy(gameObject, 0.5f);
 
-        gambling = Random.Range(0,10);
+        gambling = Random.Range(0,11);
 
         if(gambling % 2 == 0)
 
         {
-            Instantiate (Hunter, transform.position, Quaternion.identity);
+            Instantiate (Hunter, transform.position, Quaternion.identity);//spawn Hun at the enemy death position
         }
 
         

@@ -48,9 +48,9 @@ public class Hun : MonoBehaviour
         }
         if (atkcooldown > 0)
         {
-            atkcooldown -= Time.deltaTime;
+            atkcooldown -= Time.deltaTime;    //once cooldown greater than 0 reduce cooldown 
         }
-        attack();
+        attack();//if cooldown reached 0 do atk function
 
     }
 
@@ -64,9 +64,9 @@ public class Hun : MonoBehaviour
         Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(atkpoint.position, atkRange, PlayerLayers);
         foreach (Collider2D player in HitPlayer)
         {
-            if (atkcooldown <= 0)
+            if (atkcooldown <= 0)//if cooldown was reached 0 attack
             {
-                atkcooldown = 2f;
+                atkcooldown = 2f;// reset cooldown
                 animator.SetTrigger("atk");
                 player.GetComponent<health>().DamTaken(atk);
             }
@@ -88,7 +88,7 @@ public class Hun : MonoBehaviour
         Collider2D[] Detect = Physics2D.OverlapCircleAll(gameObject.transform.position, targetRange, PlayerLayers);
 
 
-        foreach (Collider2D player in Detect)
+        foreach (Collider2D player in Detect)//if player in in detection range move toward player
         {
             Vector2 direction = (target.position - transform.position).normalized;
             rb.linearVelocity = new Vector2(direction.x * speed, rb.linearVelocity.y);
@@ -106,7 +106,7 @@ public class Hun : MonoBehaviour
         flip = !flip;
     }
 
-    IEnumerator killspawn()
+    IEnumerator killspawn() //once spawn it has a life span of 5 seconds
     {
         yield return new WaitForSeconds(5f);
         die();

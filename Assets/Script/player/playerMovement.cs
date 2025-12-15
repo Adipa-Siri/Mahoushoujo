@@ -54,8 +54,8 @@ public class playerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
-        
 
+        
         if (horizontal < 0 && !flip) {
         Flip();
             
@@ -86,7 +86,7 @@ public class playerMovement : MonoBehaviour
         Vector3 current = gameObject.transform.localScale;
         current.x *= -1;
         gameObject.transform.localScale = current;
-        flip = !flip;
+        flip = !flip;//flip the player direction
     }
   
   

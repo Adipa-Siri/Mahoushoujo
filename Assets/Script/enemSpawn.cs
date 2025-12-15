@@ -22,7 +22,7 @@ public class enemSpawn : MonoBehaviour
             
                 Instantiate(enemy, new Vector2(spawnPoint.position.x * Random.Range(1, 3), player.position.y), Quaternion.identity);
             
-            yield return new WaitForSeconds(cooldown);
+            yield return new WaitForSeconds(cooldown);//when cooldown reached spawn the enemy near by player
         }
     }
 }
